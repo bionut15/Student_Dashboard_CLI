@@ -1,26 +1,23 @@
 #include <iostream>
 #include <ncurses.h>
+using namespace std;
+
+int yMax, xMax;
 
 int main (int argc, char *argv[]) {
 	initscr();
+	refresh();
+
+	getmaxyx(stdscr,yMax ,xMax);
+
+	WINDOW *win = newwin(yMax-2, xMax-2 , 1, 1);
 	
+	box(win, 0, 0);
 
+    	wrefresh(win);
 
-	WINDOW *win = newwin(15, 17, 2, 10);
-    refresh();
-
-    // making box border with default border styles
-    box(win, 0, 0);
-
-    // move and print in window
-    mvwprintw(win, 0, 1, "Greeter");
-    mvwprintw(win, 1, 1, "Hello");
-
-    // refreshing the window
-    wrefresh(win);
-
-    refresh();
-    getch();
-    endwin();
+    	refresh();
+    	getch();
+	endwin();
 	return 0;
 }
