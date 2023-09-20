@@ -6,7 +6,10 @@
 #include "../includes/weeknumber.hpp"
 
 int numrows, numcols , yMax, xMax;
+int weekNumberRounded;
 char exitKey;
+
+
 
 std::string timeTable[7][6] = {
 	{"Program", "Monday", "Tuesday","Wednesday", "Thursday", "Friday"},
@@ -48,10 +51,6 @@ void drawLogo(WINDOW *win)
 	╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝	)";
 	print_center(stdscr,yMax/7,"Student Dashboard");
 }
-void getCurrentDate()
-{
-	return;	
-}
 void writeInfoText(WINDOW *win)
 {
 	print_center(stdscr,yMax/5,"Right now u have " "" "at");
@@ -81,7 +80,6 @@ int main (int argc, char *argv[])
 	curs_set(0);
 	keypad(stdscr, TRUE);
 	nodelay(stdscr, TRUE);
-	
 	getmaxyx(stdscr,yMax ,xMax);
 
 	WINDOW *win = newwin(yMax-2, xMax-2 , 1, 1);
@@ -89,7 +87,9 @@ int main (int argc, char *argv[])
 	//WINDOW *secondary = newwin(yMax-2, xMax/2 , yMax/2, xMax/2);
 	refresh();	
 
-	drawLogo(win);
+	getWeekNumber();
+	//mvwprintw(win, 3,4,to_string(weekNumberRounded))
+
 	writeInfoText(win);
 	drawtable(win, timeTable ,7 ,6 );
 	

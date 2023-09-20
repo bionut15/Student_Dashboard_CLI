@@ -1,5 +1,6 @@
 #include <ctime>
 #include <math.h>
+#include "weeknumber.hpp"
 #define ConvertNr 604800
 
 int getWeekNumber()
