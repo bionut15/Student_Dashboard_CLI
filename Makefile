@@ -1,4 +1,4 @@
-CFLAGS = -lncurses -std=c++17 -O2
+CFLAGS = -Wall -Wextra -lncursesw -std=c++17 -O2
 
 StudentDashboard : src/main.cpp
 	g++ $(CFLAGS) -o bin/StudentDashboard src/main.cpp includes/weeknumber.cpp 

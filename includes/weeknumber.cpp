@@ -5,6 +5,7 @@
 
 int getWeekNumber()
 {
+	int weekNumberRounded ;
 	double seconds;
 	
 	time_t CurrentDate;
@@ -19,6 +20,6 @@ int getWeekNumber()
 	seconds = fabs(difftime(CurrentDate, mktime(&StartDate)));
 
 	double weekNumber = seconds/ConvertNr;
-	int weekNumberRounded = ceil(weekNumber);
-	return weekNumberRounded;
+
+	return weekNumberRounded = ceil(weekNumber);
 }
